@@ -17,6 +17,14 @@
         document.getElementById("p1").style.height = "100px";
         document.getElementById("back").style.backgroundColor = "white";
         }
+      function again(){
+        document.write("<p>这是一个段落</p>");
+        return ;
+      }
+      function fire(){
+        document.write("<p>这是一个段落</p>");
+			
+      }
     </script>
     <style>/*CSS*/
      	h1.head
@@ -48,6 +56,51 @@
         height:350px;
       }
     </style>
+    <style type="text/css">
+			#box1{
+				/*开启box1的绝对定位*/
+				position:absolute;
+			}
+		
+		</style>
+		
+		<script type="text/javascript">
+			/*
+			 *使div可以跟随鼠标移动
+			 * */
+			window.onload = function(){
+			
+			//获取box1
+				var box1 = document.getElementById("box1");
+				//绑定鼠标移动事件
+				document.onmousemove = function(event){
+					//解决兼容问题
+					event = event || window.event;
+					
+					//获取滚动滚动的距离。
+					//chrome认为滚动条是body。
+					//火狐等认为是浏览器的滚动条是html的。
+					var st = document.body.scrollTop || document.documentElement.scrollTop;
+					
+					var sl = document.body.scrollLeft || document.documentElement.scrollLeft;
+					
+					console.log(st);
+					
+					
+					
+					//获取到鼠标的坐标
+					//用于获取鼠标在当前的可见窗口的坐标
+					//在IE8中不支持 兼容IE8 则不要使用
+					var left = event.clientX -50;
+					var top = event.clientY - 50;
+					
+					//设置div的偏移量
+					box1.style.left = left+ sl + "px";
+					box1.style.top = top+ st +"px";
+				}
+			}
+			
+		</script>
   </head>
   <body>
     <div class = "background" id = "back">
@@ -55,8 +108,10 @@
       <div class = "center">
           <button id = "start2", class = "start", onclick = "start_game()"> 开始游戏 </button>
       </div>
-      <div class = "center">
-        <img border="0" src="https://cdn.acwing.com/media/article/image/2021/08/26/8041_79ca607606-1.jfif.png" alt="Pulpit rock" width="0" height="0" id = "p1">
+      <div id = "box1">
+        <div class = "center" id = d1>
+          <input name="submit" type="image" value=" " src="https://cdn.acwing.com/media/article/image/2021/08/26/8041_0269146506-1.jfif.png" height = "0px" wight = "0px" id = "p1" onclick = fire()/>
+        </div>
       </div>
     </div>
   </body>
