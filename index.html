@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -12,6 +13,9 @@
     	function start_game(){
         document.getElementById("start").remove();
 			document.getElementById("start2").remove();
+        document.getElementById("p1").style.width = "100px";
+        document.getElementById("p1").style.height = "100px";
+        document.getElementById("back").style.backgroundColor = "white";
         }
     </script>
     <style>/*CSS*/
@@ -46,10 +50,13 @@
     </style>
   </head>
   <body>
-    <div class = "background">
+    <div class = "background" id = "back">
       <h1 class = "head",  id = "start"> FPS GAME </h1>
       <div class = "center">
           <button id = "start2", class = "start", onclick = "start_game()"> 开始游戏 </button>
+      </div>
+      <div class = "center">
+        <img border="0" src="https://cdn.acwing.com/media/article/image/2021/08/26/8041_79ca607606-1.jfif.png" alt="Pulpit rock" width="0" height="0" id = "p1">
       </div>
     </div>
   </body>
